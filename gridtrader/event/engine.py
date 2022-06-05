@@ -16,6 +16,7 @@ EVENT_ORDER = "eOrder."
 EVENT_POSITION = "ePosition."
 EVENT_ACCOUNT = "eAccount."
 EVENT_CONTRACT = "eContract."
+EVENT_KLINE = "eKline."
 
 EVENT_LOG = "eLog"
 EVENT_CTA_LOG = "eCtaLog"

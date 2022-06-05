@@ -2,11 +2,16 @@
 Basic data structure used for general trading function in Binance Grid Trader.
 """
 
+from ctypes.wintypes import LONG
 from dataclasses import dataclass
 from datetime import datetime
 from logging import INFO
 from decimal import Decimal
+from pickletools import long1
+
+from numpy import number
 from .constant import Direction, Exchange, Offset, Status, Product, OrderType
+import pandas as pd
 
 ACTIVE_STATUSES = set([Status.SUBMITTING, Status.NOTTRADED, Status.PARTTRADED])
 
@@ -182,6 +187,24 @@ class AccountData(BaseData):
         self.available = self.balance - self.frozen
         self.vt_accountid = f"{self.gateway_name}.{self.accountid}"
 
+@dataclass
+class BarData(BaseData):
+    """
+    Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time. 
+    """
+    symbol:str
+    exchange:Exchange
+
+    openTime:number
+    closeTime:number
+    open:pd.Series
+    close:pd.Series
+    high:pd.Series
+    low:pd.Series
+    
+    def __post_init__(self):
+        """"""
+        self.vt_symbol = f"{self.symbol}.{self.exchange.value}"
 
 @dataclass
 class LogData(BaseData):

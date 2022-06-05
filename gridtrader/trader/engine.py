@@ -528,8 +528,11 @@ class CtaEngine(BaseEngine):
         """
         from .strategies.future_grid_strategy import FutureGridStrategy
         from .strategies.spot_grid_strategy import SpotGridStrategy
+        from .strategies.future_smi_strategy import FutureSMIStrategy
+
         self.classes[FutureGridStrategy.__name__] = FutureGridStrategy
         self.classes[SpotGridStrategy.__name__] = SpotGridStrategy
+        self.classes[FutureSMIStrategy.__name__] = FutureSMIStrategy
 
     def load_strategy_setting(self):
         """
@@ -1006,3 +1009,5 @@ class CtaEngine(BaseEngine):
         log = LogData(msg=msg, gateway_name='cta')
         event = Event(type=EVENT_LOG, data=log)
         self.event_engine.put(event)
+
+

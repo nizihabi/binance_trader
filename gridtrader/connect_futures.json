@@ -1,7 +1,7 @@
 {
-    "key": "",
-    "secret": "",
+    "key": "zgp6pRzTHjIP4GHpDMBGJVzXBUpfxNJfDDQXrqThWg9BR7ItmplrNq4G8SQemU5h",
+    "secret": "ubOLbLJVl1JbtbfSawADFUcO9A5J6jYjgIp6G8F6gnVJKmUX7wwWUxhN7hFjqn53",
     "futures_type": "USDT",
-    "proxy_host": "",
-    "proxy_port": 0
+    "proxy_host": "127.0.0.1",
+    "proxy_port": 7890
 }

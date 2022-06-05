@@ -15,8 +15,10 @@ from gridtrader.event import (
     EVENT_ACCOUNT,
     EVENT_CONTRACT,
     EVENT_LOG,
+    EVENT_KLINE
 )
 from .object import (
+    BarData,
     TickData,
     OrderData,
     TradeData,
@@ -155,6 +157,10 @@ class BaseGateway(ABC):
         """
         self.on_event(EVENT_ACCOUNT, account)
         self.on_event(EVENT_ACCOUNT + account.vt_accountid, account)
+    
+    def on_klines(self,bar:BarData)->None:
+        self.on_event(EVENT_KLINE,bar)
+        self.on_event(EVENT_KLINE + bar.vt_symbol,bar)
 
     def on_log(self, log: LogData) -> None:
         """
